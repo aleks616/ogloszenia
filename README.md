@@ -28,28 +28,28 @@ Działa na localhost:8084
 
 ## Endpointy
 
-```bash
-/api/ogloszenie/{id}
-```
 GET, wyświetla dane ogłoszenia po id, jeśli ogłoszenie pod danym id nie istnieje, wyświetla błąd
 
 ```bash
-/api/dodajogloszenie
+/api/ogloszenie/{id}
 ```
 POST, endpoint do dodawania ogłoszeń, przyjmuje treść ogłoszenia, nie przyjmuje wartości null
 
 ```bash
-/api/usunogloszenie/{id}
+/api/dodajogloszenie
 ```
 DELETE, usuwa ogłoszenie po jego id, jeśli takiego nie ma, zwraca błąd i jego opis
 
 ```bash
-/api/zmodyfikujogloszenie/{id}
+/api/usunogloszenie/{id}
 ```
 PATCH, zmienia treść ogłoszenia po jego id, jeśli takiego nie ma, zwraca błąd i jego opis, wymaga treści ogłoszenia, nie przyjmuje treści o wartości null, wtedy zwraca błąd
 
 
-
+```bash
+/api/zmodyfikujogloszenie/{id}
+```
+---
 ## Testy i obsługa błędów
 - Odpowiednie błędy przy ID < 1, dla funkcji używających id ogłoszenia jako argumentu
 
@@ -66,3 +66,10 @@ PATCH, zmienia treść ogłoszenia po jego id, jeśli takiego nie ma, zwraca bł
 
 ### Informacje co do bazy danych
 Użyłem mysql, w plikach w repo jest konfiguracja z pustym hasłem, należy je zamienić na prawdziwe
+
+
+
+
+
+
+
