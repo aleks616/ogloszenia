@@ -48,4 +48,8 @@ public class OgloszenieService{
         repository.deleteOgloszenieById(id);
     }
 
+    public void patchOgloszenieTresc(long id, String tresc){
+        repository.modifyOgloszenieTresc(id,tresc);
+    }
+
 }

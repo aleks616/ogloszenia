@@ -54,6 +54,12 @@ public class Controller{
         ogloszenieService.deleteOgloszenie(id);
     }
 
+    @PatchMapping("/zmodyfikujogloszenie/{id}")
+    public void patchOgloszenie(@PathVariable long id, @RequestBody String tresc){
+        //todo: throw if not string
+        ogloszenieService.patchOgloszenieTresc(id, tresc);
+    }
+
 }
 //delete mapping
 //put/patch mapping
