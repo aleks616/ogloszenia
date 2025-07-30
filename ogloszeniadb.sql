@@ -28,7 +28,7 @@ CREATE TABLE `ogloszenie` (
   `tresc` text,
   `ilosc_wyswietlen` int DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `ogloszenie` (
 
 LOCK TABLES `ogloszenie` WRITE;
 /*!40000 ALTER TABLE `ogloszenie` DISABLE KEYS */;
-INSERT INTO `ogloszenie` VALUES (1,'2025-07-30 11:25:20','dodane w sql nie przez post',40),(2,'2025-07-30 13:14:04','przykładowe ogłoszenie dodane postem próba 3',5),(4,'2025-07-30 13:21:42','kolejne przykładowe ogłoszenie dodane postem ',1),(5,'2025-07-30 13:26:38','nowa zawartość ogłoszenia',4),(6,'2025-07-30 17:24:08','\"ogłoszenie dodane za pomocą menu endpoints w idea\"',0),(7,'2025-07-30 17:30:47',NULL,0),(8,'2025-07-30 17:38:58',NULL,0),(9,'2025-07-30 17:39:19',NULL,0),(10,'2025-07-30 17:40:04',NULL,0),(11,'2025-07-30 17:49:36',NULL,1),(12,'2025-07-30 19:02:54','nowa treść testowa',4),(15,'2025-07-30 19:05:44','test wyświetleń',1),(17,'2025-07-30 19:05:54','test wyświetleń',1),(19,'2025-07-30 19:06:04','test wyświetleń',1),(21,'2025-07-30 19:09:40','test wyświetleń',1),(23,'2025-07-30 19:15:14','test wyświetleń',1);
+INSERT INTO `ogloszenie` VALUES (1,'2025-07-30 11:25:20','dodane w sql nie przez post',40),(2,'2025-07-30 13:14:04','przykładowe ogłoszenie dodane postem próba 3',5),(4,'2025-07-30 13:21:42','kolejne przykładowe ogłoszenie dodane postem ',1),(5,'2025-07-30 13:26:38','nowa zawartość ogłoszenia',4),(6,'2025-07-30 17:24:08','\"ogłoszenie dodane za pomocą menu endpoints w idea\"',0);
 /*!40000 ALTER TABLE `ogloszenie` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
