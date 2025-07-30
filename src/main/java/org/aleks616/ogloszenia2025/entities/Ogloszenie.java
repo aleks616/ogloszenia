@@ -1,4 +1,4 @@
-package org.aleks616.ogloszenia2025;
+package org.aleks616.ogloszenia2025.entities;
 
 import jakarta.persistence.*;
 

@@ -1,6 +1,7 @@
-package org.aleks616.ogloszenia2025;
+package org.aleks616.ogloszenia2025.repositories;
 
 import jakarta.transaction.Transactional;
+import org.aleks616.ogloszenia2025.entities.Ogloszenie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -37,4 +38,7 @@ public interface OgloszenieRepository extends JpaRepository<Ogloszenie, Long>{
        WHERE id=:id
     """)
     void modifyOgloszenieTresc(@Param("id") long id, @Param("tresc") String tresc);
+
+    @Query("SELECT MAX(id) FROM Ogloszenie")
+    long findTopById();
 }
