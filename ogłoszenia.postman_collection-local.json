@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "3d9a9748-67a1-4c1e-89e5-cb60214274bd",
+		"name": "ogłoszenia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47195507",
+		"_collection_link": "https://aleks616-7216019.postman.co/workspace/7d2e765b-c560-4525-87a4-61210c052c26/collection/47195507-3d9a9748-67a1-4c1e-89e5-cb60214274bd?action=share&source=collection_link&creator=47195507"
+	},
+	"item": [
+		{
+			"name": "get 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/ogloszenie/1",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"ogloszenie",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get 3 (not found)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/ogloszenie/3",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"ogloszenie",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get 5",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/ogloszenie/5",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"ogloszenie",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get 5 (wyświetlenia się zwiększą)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/ogloszenie/5",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"ogloszenie",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dodaj nowy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/dodajogloszenie",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"dodajogloszenie"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get 7 (to powinien być ten nowy)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/ogloszenie/5",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"ogloszenie",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "usuń 1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/usunogloszenie/1",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"usunogloszenie",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get 1 (nie ma bo zostało usunięte)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/ogloszenie/1",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"ogloszenie",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "zmień ogłoszenie 5",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "zupełnie inna zawartość ogłoszenia",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/api/zmodyfikujogloszenie/5",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"zmodyfikujogloszenie",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get zmienione 5",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "skip_zrok_interstitial",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8084/api/ogloszenie/5",
+					"protocol": "https",
+					"host": [
+						"i2mz4enncs7v",
+						"share",
+						"zrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"ogloszenie",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
