@@ -1,14 +1,9 @@
 package org.aleks616.ogloszenia2025;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OgloszenieService{
@@ -19,14 +14,18 @@ public class OgloszenieService{
         }
     }
 
+    @ResponseStatus(code=HttpStatus.NOT_FOUND, reason="Id ogłoszenia musi być typu long")
+    public static class NumberFormatException extends RuntimeException{
+        public NumberFormatException(String message){
+            super(message);
+        }
+    }
+
+
     private final OgloszenieRepository repository;
 
     public OgloszenieService(OgloszenieRepository repository){
         this.repository=repository;
-    }
-
-    public List<Ogloszenie> getAll(){
-        return repository.findAll();
     }
 
     public Ogloszenie viewOgloszenie(long id){
@@ -42,13 +41,17 @@ public class OgloszenieService{
     }
 
     public void deleteOgloszenie(long id){
-        Ogloszenie ogloszenie=repository.findOgloszenieById(id);
-        if(ogloszenie==null) throw new EntityNotFoundException("Ogłoszenie o ID "+id+" już nie istnieje, nie można usunąć");
+        if(repository.findOgloszenieById(id)==null)
+            throw new EntityNotFoundException("Ogłoszenie o ID "+id+" już nie istnieje, nie można usunąć");
 
         repository.deleteOgloszenieById(id);
     }
 
     public void patchOgloszenieTresc(long id, String tresc){
+        if(repository.findOgloszenieById(id)==null)
+            throw new EntityNotFoundException("Ogłoszenie o ID "+id+" już nie istnieje, nie można zmodyfikować");
+        //alternatywnie, jeśli nie istnieje, można dodać: addOgloszenie(tresc);
+
         repository.modifyOgloszenieTresc(id,tresc);
     }
 

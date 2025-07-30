@@ -1,7 +1,5 @@
 package org.aleks616.ogloszenia2025;
 
-
-import org.aleks616.ogloszenia2025.OgloszenieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -17,13 +15,9 @@ import java.nio.file.Files;
 @RequestMapping("/api")
 public class Controller{
     private final OgloszenieService ogloszenieService;
-
     @Autowired
     public Controller(OgloszenieService ogloszenieService){
         this.ogloszenieService=ogloszenieService;
-    }
-    public OgloszenieService getOgloszenieService(){
-        return ogloszenieService;
     }
 
     @GetMapping(value="/", produces=MediaType.TEXT_HTML_VALUE)
@@ -38,29 +32,39 @@ public class Controller{
         try{
             return ResponseEntity.ok(ogloszenieService.viewOgloszenie(id));
         }
+        catch(OgloszenieService.NumberFormatException e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
         catch(OgloszenieService.EntityNotFoundException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
-
     @PostMapping("/dodajogloszenie")
     public void addOgloszenie(@RequestBody String tresc) {
         ogloszenieService.addOgloszenie(tresc);
-        //todo: throw if not string
     }
 
     @DeleteMapping("/usunogloszenie/{id}")
-    public void deleteOgloszenie(@PathVariable long id){
-        ogloszenieService.deleteOgloszenie(id);
+    public ResponseEntity<?> deleteOgloszenie(@PathVariable long id){
+        try{
+            ogloszenieService.deleteOgloszenie(id);
+            return ResponseEntity.noContent().build();
+        }
+        catch(OgloszenieService.NumberFormatException e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
     @PatchMapping("/zmodyfikujogloszenie/{id}")
-    public void patchOgloszenie(@PathVariable long id, @RequestBody String tresc){
-        //todo: throw if not string
-        ogloszenieService.patchOgloszenieTresc(id, tresc);
+    public ResponseEntity<?> patchOgloszenie(@PathVariable long id, @RequestBody String tresc){
+        try{
+            ogloszenieService.patchOgloszenieTresc(id, tresc);
+            return ResponseEntity.noContent().build();
+        }
+        catch(OgloszenieService.NumberFormatException e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
 }
-//delete mapping
-//put/patch mapping
-//todo: tests, postman collection
+//todo: tests
