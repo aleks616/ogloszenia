@@ -31,4 +31,12 @@ public interface OgloszenieRepository extends JpaRepository<Ogloszenie, Long>{
     @Transactional
     @Modifying
     void deleteOgloszenieById(long id);
+
+    @Transactional
+    @Modifying
+    @Query("""
+    UPDATE Ogloszenie SET tresc=:tresc
+       WHERE id=:id
+    """)
+    void modifyOgloszenieTresc(@Param("id") long id, @Param("tresc") String tresc);
 }
